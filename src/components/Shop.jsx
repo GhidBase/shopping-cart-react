@@ -7,8 +7,11 @@ function Shop() {
     return (
         <div className={styles.shop}>
             <h1>Shop</h1>
-            <ShopItem title="Item 1" />
-            <ShopItem title="Item 2" />
+            <div className={styles.shopItemContainer}>
+                <ShopItem title="Item 1" />
+                <ShopItem title="Item 2" />
+                <ShopItem title="Item Something" />
+            </div>
         </div>
     );
 }
