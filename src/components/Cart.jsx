@@ -5,7 +5,6 @@ function Cart() {
     return (
         <Fragment>
             <h1>Cart</h1>
-            <Link to="/">Back to home</Link>
         </Fragment>
     );
 }

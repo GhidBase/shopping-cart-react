@@ -5,7 +5,6 @@ function Shop() {
     return (
         <Fragment>
             <h1>Shop</h1>
-            <Link to="/">Back to main</Link>
         </Fragment>
     );
 }

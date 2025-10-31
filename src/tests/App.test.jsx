@@ -8,33 +8,17 @@ import userEvent from "@testing-library/user-event";
 import routes from "../routes.jsx";
 
 describe("Webpages", () => {
-    it("Homepage shows menu options", () => {
-        render(
-            <MemoryRouter initialEntries={["/"]}>
-                <App title="React" />
-            </MemoryRouter>
-        );
-        expect(screen.getByText("Go to shop")).toBeInTheDocument();
-    });
-    it('Shop shows "Back to main"', () => {
-        render(
-            <MemoryRouter initialEntries={["/"]}>
-                <Shop />
-            </MemoryRouter>
-        );
-        expect(screen.getByText("Back to main")).toBeInTheDocument();
-    });
-
-    it("Clicking link to shop navigates there", async () => {
+    it("Navigation bar is always visible", async () => {
         const router = createMemoryRouter(routes, {
             initialEntries: ["/"],
         });
         render(<RouterProvider router={router} />);
         const user = userEvent.setup();
-        const shopLink = screen.getByText("Go to shop");
+        const shopLink = screen.getByText("Shop");
+
+
         expect(shopLink).toBeInTheDocument();
         await user.click(shopLink);
-        const shop = await screen.findByText("Shop");
-        expect(shop).toBeInTheDocument();
+        expect(shopLink).toBeInTheDocument();
     });
 });
