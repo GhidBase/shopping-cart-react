@@ -7,7 +7,9 @@ function App() {
         <>
             <Navbar />
 
-            <Outlet />
+            <div className="main-content">
+                <Outlet />
+            </div>
         </>
     );
 }

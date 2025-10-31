@@ -16,9 +16,14 @@ describe("Webpages", () => {
         const user = userEvent.setup();
         const shopLink = screen.getByText("Shop");
 
-
         expect(shopLink).toBeInTheDocument();
         await user.click(shopLink);
         expect(shopLink).toBeInTheDocument();
+    });
+});
+
+describe("Shop cards", () => {
+    it("test", () => {
+        expect(true).toBe(true);
     });
 });
