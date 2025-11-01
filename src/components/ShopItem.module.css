@@ -2,7 +2,7 @@
     width: 100%;
     box-sizing: border-box;
     background-color: white;
-    aspect-ratio: 1/1;
+    aspect-ratio: 1/1.5;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -25,4 +25,15 @@
     display: flex;
     flex-direction: column;
     gap: 4px;
+}
+
+.quantities {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.quantities input {
+    flex: 1;
+    min-width: 0;
 }

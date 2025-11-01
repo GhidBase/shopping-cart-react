@@ -4,9 +4,13 @@ function ShopItem({ title, price }) {
     return (
         <div className={styles.shopItem}>
             <div className={styles.itemDetails}>
-                <span>{title}</span><span>${price}</span>
+                <span>{title}</span>
+                <span>${price}</span>
             </div>
-            <input type="text" />
+            <div className={styles.quantities}>
+                <input type="text" />
+                <button>Add to Cart</button>
+            </div>
         </div>
     );
 }

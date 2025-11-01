@@ -5,14 +5,14 @@ import styles from "./Shop.module.css";
 
 function Shop() {
     return (
-        <div className={styles.shop}>
+        <Fragment>
             <h1>Shop</h1>
-            <div className={styles.shopItemContainer}>
+            <div className={styles.shop}>
                 <ShopItem title="Item 1" price={20} />
                 <ShopItem title="Item 2" price={35} />
                 <ShopItem title="Item something" price={100} />
             </div>
-        </div>
+        </Fragment>
     );
 }
 
