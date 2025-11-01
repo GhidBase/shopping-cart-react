@@ -8,9 +8,9 @@ function Shop() {
         <div className={styles.shop}>
             <h1>Shop</h1>
             <div className={styles.shopItemContainer}>
-                <ShopItem title="Item 1" />
-                <ShopItem title="Item 2" />
-                <ShopItem title="Item Something" />
+                <ShopItem title="Item 1" price={20} />
+                <ShopItem title="Item 2" price={35} />
+                <ShopItem title="Item something" price={100} />
             </div>
         </div>
     );

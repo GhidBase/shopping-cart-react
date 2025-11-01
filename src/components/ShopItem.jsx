@@ -1,9 +1,11 @@
 import styles from "./ShopItem.module.css";
 
-function ShopItem({ title }) {
+function ShopItem({ title, price }) {
     return (
         <div className={styles.shopItem}>
-            <p>{title}</p>
+            <div className={styles.itemDetails}>
+                <span>{title}</span><span>${price}</span>
+            </div>
             <input type="text" />
         </div>
     );

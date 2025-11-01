@@ -1,3 +1,8 @@
 Current goal:
 
-Make the navbar
+ShopItems need:
+- Title
+- Price
+- Qty
+- Increment/Decrement
+- Add to Cart

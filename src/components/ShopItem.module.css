@@ -4,9 +4,25 @@
     background-color: white;
     aspect-ratio: 1/1;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    justify-content: end;
 }
 
 .shopItem > * {
     width: 100%;
     box-sizing: border-box;
+}
+
+.itemDetails {
+    border-top: 1px solid black;
+    padding-top: 4px;
+    margin: 0;
+}
+
+.itemDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
