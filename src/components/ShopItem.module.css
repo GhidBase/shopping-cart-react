@@ -1,4 +1,12 @@
-.shopItem, .shopItem * {
+.shopItem {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: white;
+    aspect-ratio: 1/1;
+    padding: 10px;
+}
+
+.shopItem > * {
     width: 100%;
     box-sizing: border-box;
 }
