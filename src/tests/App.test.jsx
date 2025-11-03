@@ -1,3 +1,4 @@
+
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import App from "../App.jsx";
@@ -8,6 +9,7 @@ import userEvent from "@testing-library/user-event";
 import routes from "../routes.jsx";
 
 describe("Webpages", () => {
+
     it("Navigation bar is always visible", async () => {
         const router = createMemoryRouter(routes, {
             initialEntries: ["/"],
@@ -23,7 +25,56 @@ describe("Webpages", () => {
 });
 
 describe("Shop cards", () => {
-    it("test", () => {
-        expect(true).toBe(true);
+    it("Incrementing/decrementing works", async () => {
+        const router = createMemoryRouter(routes, {
+            initialEntries: ["/"],
+        });
+        render(<RouterProvider router={router} />);
+        const user = userEvent.setup();
+        const shopLink = screen.getByText("Shop");
+        await user.click(shopLink);
+
+        const shopItemInputs = await screen.findAllByRole("spinbutton");
+        const shopItemDecrements = await screen.findAllByText("-");
+        const shopItemincrements = await screen.findAllByText("+");
+        const input1 = shopItemInputs[0];
+        const input1StartingValue = input1.value;
+
+        await user.click(shopItemincrements[0]);
+        expect(+input1.value).toBe(+input1StartingValue + 1);
+        await user.click(shopItemDecrements[0]);
+        expect(+input1.value).toBe(+input1StartingValue);
+    });
+
+    it("Decrementing can't take the number below 0", async () => {
+        const router = createMemoryRouter(routes, {
+            initialEntries: ["/"],
+        });
+        render(<RouterProvider router={router} />);
+        const user = userEvent.setup();
+        const shopLink = screen.getByText("Shop");
+        await user.click(shopLink);
+
+        const shopItemInputs = await screen.findAllByRole("spinbutton");
+        const shopItemDecrements = await screen.findAllByText("-");
+        const input1 = shopItemInputs[0];
+
+        expect(+input1.value).toBe(0);
+        await user.click(shopItemDecrements[0]);
+        expect(+input1.value).toBe(0);
+    });
+
+    it("FakeStoreAPI renders more than 5 items in the shop", async () => {
+        const router = createMemoryRouter(routes, {
+            initialEntries: ["/"],
+        });
+        render(<RouterProvider router={router} />);
+        const user = userEvent.setup();
+        const shopLink = screen.getByText("Shop");
+        await user.click(shopLink);
+
+        const storeAddToCartButtons = await screen.findAllByText("Add to Cart");
+
+        expect(storeAddToCartButtons.length).toBeGreaterThan(5);
     });
 });
