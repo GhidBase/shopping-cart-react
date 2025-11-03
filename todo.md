@@ -1,8 +1,5 @@
 Current goal:
 
 ShopItems need:
-- Title
-- Price
-- Qty
-- Increment/Decrement
-- Add to Cart
+- Hook up the incremenet and decrement values
+- Make the input a controlled field
