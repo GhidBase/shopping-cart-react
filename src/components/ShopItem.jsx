@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./ShopItem.module.css";
 
-function ShopItem({ title, price }) {
+function ShopItem({ title, price, handleAddToCart, id }) {
     const [quantity, setQuantity] = useState(0);
     if (quantity < 0) {
         setQuantity(0);
@@ -27,7 +27,9 @@ function ShopItem({ title, price }) {
                 </button>
             </div>
 
-            <button>Add to Cart</button>
+            <button onClick={() => handleAddToCart(title, id)}>
+                Add to Cart
+            </button>
         </div>
     );
 }

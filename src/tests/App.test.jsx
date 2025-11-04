@@ -72,6 +72,9 @@ describe("Shop items can be added to the cart", () => {
     let router;
     let user;
     let shopLink;
+    let cartLink;
+    let cartTexts;
+    let removeTexts;
     // let shopItemInputs;
     // let shopItemDecrements;
     // let shopItemincrements;
@@ -85,15 +88,23 @@ describe("Shop items can be added to the cart", () => {
         user = userEvent.setup();
         shopLink = screen.getByText("Shop");
         await user.click(shopLink);
+        cartLink = screen.getByText("Cart");
+        await user.click(cartLink);
+        cartTexts = await screen.findAllByText("Cart");
+        removeTexts = await screen.findAllByText("Remove");
+
         // shopItemInputs = await screen.findAllByRole("spinbutton");
         // shopItemDecrements = await screen.findAllByText("-");
         // shopItemincrements = await screen.findAllByText("+");
         // storeAddToCartButtons = await screen.findAllByText("Add to Cart");
     });
 
+    it("Navigation to Cart works", async () => {
+        // const cartItems = await screen.findAllByText("Remove");
+        expect(cartTexts.length).toBe(2);
+    });
+
     it("Selected items show up in the cart", async () => {
-        const cartItems = await screen.findAllByText("Remove");
-        expect(cartItems.length).toBe(2);
+        expect(removeTexts.length).toBe(4);
     });
 });
- 
