@@ -1,16 +1,30 @@
 import { Fragment } from "react";
-import { Link } from "react-router";
+import { Link, useOutletContext } from "react-router";
 import styles from "./Cart.module.css";
 import CartItem from "./CartItem";
 
 function Cart() {
+    const [cartItems, setCartItems] = useOutletContext();
+
+    function parseCart() {
+        console.log("cart items");
+        return cartItems.map((item) => {
+            console.log(item);
+            return (
+                <CartItem
+                    key={item.id}
+                    title={item.title}
+                    quantity={item.quantity}
+                    price={item.price}
+                />
+            );
+        });
+    }
+
     return (
         <Fragment>
             <h1>Cart</h1>
-            <div className={styles.cart}>
-                <CartItem title="Test Item" price={20} quantity={2} />
-                <CartItem title="Test Item" price={20} quantity={2} />
-            </div>
+            <div className={styles.cart}>{parseCart()}</div>
         </Fragment>
     );
 }

@@ -14,14 +14,20 @@ function Shop() {
             .then((result) => setStoreData(result));
     }, []);
 
-    function handleAddToCart(title, id) {
+    function handleAddToCart(title, id, price, quantity) {
         // findIndex returns -1 if there's no result
+        // I use that to decide whether to push or to update
         const itemIndex = cartItems.findIndex((item) => item.id == id);
         let newCartItems = [...cartItems];
         if (itemIndex > -1) {
-            newCartItems[itemIndex].quantity += 1;
+            newCartItems[itemIndex].quantity += quantity;
         } else {
-            newCartItems.push({ title: title, quantity: 3, id: id });
+            newCartItems.push({
+                title: title,
+                quantity: quantity,
+                id: id,
+                price: price,
+            });
         }
         console.log(newCartItems);
         setCartItems(newCartItems);

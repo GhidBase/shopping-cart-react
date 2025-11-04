@@ -10,6 +10,8 @@ function CartItem({ title, price, quantity }) {
                         <button>-</button>
                         <input
                             className={styles.quantityField}
+                            // I need to add an onChange here that updates the cartItems data
+                            // whenever the quantity input field is used
                             value={quantity}
                         />
                         <button>+</button>

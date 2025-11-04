@@ -27,7 +27,7 @@ function ShopItem({ title, price, handleAddToCart, id }) {
                 </button>
             </div>
 
-            <button onClick={() => handleAddToCart(title, id)}>
+            <button onClick={() => handleAddToCart(title, id, price, quantity)}>
                 Add to Cart
             </button>
         </div>
