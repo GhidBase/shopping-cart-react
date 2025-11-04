@@ -67,3 +67,33 @@ describe("Shop cards", () => {
         expect(storeAddToCartButtons.length).toBeGreaterThan(5);
     });
 });
+
+describe("Shop items can be added to the cart", () => {
+    let router;
+    let user;
+    let shopLink;
+    // let shopItemInputs;
+    // let shopItemDecrements;
+    // let shopItemincrements;
+    // let storeAddToCartButtons;
+
+    beforeAll(async () => {
+        router = createMemoryRouter(routes, {
+            initialEntries: ["/"],
+        });
+        render(<RouterProvider router={router} />);
+        user = userEvent.setup();
+        shopLink = screen.getByText("Shop");
+        await user.click(shopLink);
+        // shopItemInputs = await screen.findAllByRole("spinbutton");
+        // shopItemDecrements = await screen.findAllByText("-");
+        // shopItemincrements = await screen.findAllByText("+");
+        // storeAddToCartButtons = await screen.findAllByText("Add to Cart");
+    });
+
+    it("Selected items show up in the cart", async () => {
+        const cartItems = await screen.findAllByText("Remove");
+        expect(cartItems.length).toBe(2);
+    });
+});
+ 
