@@ -1,5 +1,7 @@
 Current goal:
 
-Make Cart Item component
-Have a JSON object get built whenever pressing add to cart
-Render JSON objects as the Cart Items
+Make the cart changeable from the Cart screen
+
+- Edit
+- Remove
+- The edit function needs to be able to find the id in the cartItems state

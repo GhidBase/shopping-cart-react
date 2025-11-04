@@ -1,24 +1,45 @@
 import styles from "./CartItem.module.css";
 
-function CartItem({ title, price, quantity }) {
+function CartItem({
+    title,
+    price,
+    quantity,
+    setCartItemQuantity,
+    removeCartItem,
+    id,
+}) {
     return (
         <div className={styles.cartItem}>
             <div className={styles.itemDetails}>
                 <div id="leftDetails">
                     <div className={styles.title}>{title}</div>
                     <div className={styles.quantity}>
-                        <button>-</button>
+                        <button
+                            onClick={() =>
+                                setCartItemQuantity(quantity - 1, id)
+                            }
+                        >
+                            -
+                        </button>
                         <input
                             className={styles.quantityField}
-                            // I need to add an onChange here that updates the cartItems data
-                            // whenever the quantity input field is used
+                            onChange={(e) =>
+                                setCartItemQuantity(e.target.value, id)
+                            }
                             value={quantity}
                         />
-                        <button>+</button>
+                        <button
+                            onClick={() =>
+                                setCartItemQuantity(quantity + 1, id)
+                            }
+                        >
+                            +
+                        </button>
                     </div>
                 </div>
                 <span>
-                    ${price} <button>Remove</button>
+                    ${price}{" "}
+                    <button onClick={() => removeCartItem(id)}>Remove</button>
                 </span>
             </div>
         </div>
