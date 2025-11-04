@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./ShopItem.module.css";
 
-function ShopItem({ title, price, handleAddToCart, id }) {
+function ShopItem({ title, price, handleAddToCart, id, image }) {
     const [quantity, setQuantity] = useState(0);
     if (quantity < 0) {
         setQuantity(0);
@@ -9,6 +9,9 @@ function ShopItem({ title, price, handleAddToCart, id }) {
 
     return (
         <div className={styles.shopItem}>
+            <div className={styles.imgContainer}>
+                <img src={image} alt="" />
+            </div>
             <div className={styles.itemDetails}>
                 <span>{title}</span>
                 <span>${price}</span>

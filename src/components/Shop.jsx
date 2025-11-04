@@ -7,6 +7,7 @@ import { useOutletContext } from "react-router";
 function Shop() {
     const [storeData, setStoreData] = useState([]);
     const [cartItems, setCartItems] = useOutletContext();
+    console.log(storeData);
 
     useEffect(() => {
         fetch("https://fakestoreapi.com/products")
@@ -47,6 +48,7 @@ function Shop() {
                                 title={shopItem.title}
                                 price={shopItem.price}
                                 handleAddToCart={handleAddToCart}
+                                image={shopItem.image}
                             />
                         );
                     })}
