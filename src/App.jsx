@@ -5,10 +5,14 @@ import { useState } from "react";
 
 function App() {
     const [cartItems, setCartItems] = useState([]);
+    const cartItemQuantity = cartItems.reduce(
+        (accumulator, current) => accumulator + current.quantity,
+        0
+    );
 
     return (
         <>
-            <Navbar />
+            <Navbar cartItemQuantity={cartItemQuantity} />
 
             <div className="main-content">
                 <Outlet context={[cartItems, setCartItems]} />

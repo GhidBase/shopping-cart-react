@@ -72,13 +72,13 @@ describe("Shop items can be added to the cart", () => {
     let router;
     let user;
     let shopLink;
+    let storeAddToCartButtons;
     let cartLink;
     let cartTexts;
     let removeTexts;
     // let shopItemInputs;
     // let shopItemDecrements;
     // let shopItemincrements;
-    // let storeAddToCartButtons;
 
     beforeAll(async () => {
         router = createMemoryRouter(routes, {
@@ -88,6 +88,12 @@ describe("Shop items can be added to the cart", () => {
         user = userEvent.setup();
         shopLink = screen.getByText("Shop");
         await user.click(shopLink);
+        storeAddToCartButtons = await screen.findAllByText("Add to Cart");
+        user.click(storeAddToCartButtons[0]);
+        user.click(storeAddToCartButtons[1]);
+        user.click(storeAddToCartButtons[2]);
+        user.click(storeAddToCartButtons[3]);
+
         cartLink = screen.getByText("Cart");
         await user.click(cartLink);
         cartTexts = await screen.findAllByText("Cart");
@@ -96,7 +102,6 @@ describe("Shop items can be added to the cart", () => {
         // shopItemInputs = await screen.findAllByRole("spinbutton");
         // shopItemDecrements = await screen.findAllByText("-");
         // shopItemincrements = await screen.findAllByText("+");
-        // storeAddToCartButtons = await screen.findAllByText("Add to Cart");
     });
 
     it("Navigation to Cart works", async () => {
