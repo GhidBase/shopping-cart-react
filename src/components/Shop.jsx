@@ -21,7 +21,8 @@ function Shop() {
         const itemIndex = cartItems.findIndex((item) => item.id == id);
         let newCartItems = [...cartItems];
         if (itemIndex > -1) {
-            newCartItems[itemIndex].quantity += quantity;
+            newCartItems[itemIndex].quantity =
+                +newCartItems[itemIndex].quantity + quantity;
         } else {
             newCartItems.push({
                 title: title,

@@ -22,7 +22,7 @@ function ShopItem({ title, price, handleAddToCart, id, image }) {
                 </button>
                 <input
                     type="number"
-                    onChange={(e) => setQuantity(e.target.value)}
+                    onChange={(e) => setQuantity(+e.target.value)}
                     value={quantity}
                 />
                 <button onClick={() => setQuantity(Number(quantity) + 1)}>
